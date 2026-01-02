@@ -2,6 +2,7 @@ package ch.amarenyo.moneyPlugin;
 
 import ch.amarenyo.moneyPlugin.commands.MoneyCommand;
 import ch.amarenyo.moneyPlugin.commands.PayCommand;
+import ch.amarenyo.moneyPlugin.listeners.DeathListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin {
@@ -11,6 +12,7 @@ public final class Main extends JavaPlugin {
         this.saveDefaultConfig();
         getCommand("money").setExecutor(new MoneyCommand());
         getCommand("pay").setExecutor(new PayCommand());
+        getServer().getPluginManager().registerEvents(new DeathListener(), this);
         this.getConfig().set("money.jason", 200);
         this.saveConfig();
     }
