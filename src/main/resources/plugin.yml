@@ -1,0 +1,13 @@
+name: TwilightSMP-MoneyPlugin
+version: '0.2.2-Alpha'
+main: ch.amarenyo.moneyPlugin.Main
+api-version: '1.21'
+
+commands:
+  money:
+    description: See your current balance
+    usage: /money
+
+  pay:
+    description: Pay someone money
+    usage: /pay <player> <amount>
