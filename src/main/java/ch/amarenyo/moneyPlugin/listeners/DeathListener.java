@@ -28,5 +28,7 @@ public class DeathListener implements Listener {
                 main.getConfig().set("money." + uuid, 0);
             }
         }
+        main.saveConfig();
+        main.reloadConfig();
     }
 }
