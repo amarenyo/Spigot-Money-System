@@ -6,7 +6,7 @@
 
     <groupId>ch.amarenyo</groupId>
     <artifactId>TwilightSMP-MoneyPlugin</artifactId>
-    <version>0.4.2-Alpha</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>TwilightSMP-MoneyPlugin</name>
