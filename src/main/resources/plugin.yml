@@ -1,5 +1,5 @@
 name: TwilightSMP-MoneyPlugin
-version: '0.3.2-Alpha'
+version: '0.3.3-Alpha'
 main: ch.amarenyo.moneyPlugin.Main
 api-version: '1.21'
 

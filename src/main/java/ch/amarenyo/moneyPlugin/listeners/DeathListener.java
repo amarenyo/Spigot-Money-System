@@ -12,26 +12,23 @@ public class DeathListener implements Listener {
         Main main = Main.getPlugin(Main.class);
         Player player = event.getEntity();
         String uuid = player.getUniqueId().toString();
-        if(player.getKiller() == null) {
-            if (main.getMoney(uuid) >= 100) {
-                main.getConfig().set("money." + uuid, main.getMoney(uuid) - 100);
-            } else if (main.getMoney(uuid) > 0) {
-                main.getConfig().set("money." + uuid, 0);
-            }
-        } else {
+        if(player.getKiller() != null) {
             Player killer = player.getKiller();
             String killeruuid = killer.getUniqueId().toString();
-            if (main.getMoney(uuid) >= 100) {
-                main.getConfig().set("money." + uuid, main.getMoney(uuid) - 100);
-                main.getConfig().set("money." + killeruuid, main.getMoney(killeruuid) + 40);
-                player.sendMessage("You lost 100!");
-                killer.sendMessage("You got 40!");
+            if (main.getMoney(uuid) >= 70) {
+                main.getConfig().set("money." + uuid, main.getMoney(uuid) - 70);
+                main.getConfig().set("money." + killeruuid, main.getMoney(killeruuid) + 70);
+                player.sendMessage("You lost 70!");
+                killer.sendMessage("You earned 70!");
             } else {
+                main.getConfig().set("money." + killeruuid, main.getMoney(killeruuid) + main.getMoney(uuid) );
+                killer.sendMessage("You earned " + main.getMoney(uuid) + "!");
                 main.getConfig().set("money." + uuid, 0);
                 player.sendMessage("You lost everything!");
             }
+            main.saveConfig();
+            main.reloadConfig();
         }
-        main.saveConfig();
-        main.reloadConfig();
+
     }
 }
